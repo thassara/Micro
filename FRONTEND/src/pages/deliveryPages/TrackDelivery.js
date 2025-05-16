@@ -8,16 +8,40 @@ import StatusUpdate from '../../components/deliveryComponents/StatusUpdate';
 import { formatTimestamp } from '../../utils/helpers';
 import { getDeliveryById, getDriverById, confirmDelivery } from '../../service/deliveryApi';
 
+// Custom icons
+const DRIVER_ICON = {
+  url: '/icons/car.svg',
+  scaledSize: { width: 20, height: 20 },
+  anchor: { x: 10, y: 10 }
+};
+
+const RESTAURANT_ICON = {
+  url: '/icons/utensils.svg',
+  scaledSize: { width: 20, height: 20 },
+  anchor: { x: 10, y: 10 }
+};
+
+const DELIVERY_ICON = {
+  url: '/icons/home.svg',
+  scaledSize: { width: 20, height: 20 },
+  anchor: { x: 10, y: 10 }
+};
+
+
+
 function TrackDelivery() {
   const { deliveryId } = useParams();
   const [delivery, setDelivery] = useState(null);
   const [driver, setDriver] = useState(null);
   const [driverLocation, setDriverLocation] = useState(null);
+  const [displayLocation, setDisplayLocation] = useState(null); // For smooth animation
   const [status, setStatus] = useState('');
   const [routePath, setRoutePath] = useState([]);
   const [isConfirming, setIsConfirming] = useState(false);
   const clientRef = useRef(null);
   const googleMapsRef = useRef(null);
+  const animationRef = useRef(null);
+  const previousLocationRef = useRef(null);
 
   useEffect(() => {
     const loader = new Loader({
@@ -34,18 +58,26 @@ function TrackDelivery() {
       try {
         const response = await getDeliveryById(deliveryId);
         setDelivery(response.data);
-        setDriverLocation(response.data.driverLocation);
-        setStatus(response.data.status);
         if (response.data.driverLocation) {
-          calculateRoute(response.data);
+          setDriverLocation(response.data.driverLocation);
+          setDisplayLocation({
+            lat: response.data.driverLocation.latitude,
+            lng: response.data.driverLocation.longitude
+          });
+          previousLocationRef.current = {
+            lat: response.data.driverLocation.latitude,
+            lng: response.data.driverLocation.longitude
+          };
         }
+        setStatus(response.data.status);
+        calculateRoute(response.data);
+        
         if (response.data.driverId) {
           try {
             const driverResponse = await getDriverById(response.data.driverId);
             setDriver(driverResponse.data);
           } catch (err) {
             console.error('Error fetching driver:', err);
-            // Display error in StatusUpdate component
             setStatus('ERROR');
           }
         }
@@ -65,7 +97,16 @@ function TrackDelivery() {
           const update = JSON.parse(message.body);
           console.log('Received WebSocket update:', update);
           setStatus(update.status);
-          setDriverLocation(update.driverLocation);
+          
+          if (update.driverLocation) {
+            const newLocation = {
+              lat: update.driverLocation.latitude,
+              lng: update.driverLocation.longitude
+            };
+            setDriverLocation(update.driverLocation);
+            animateDriverMovement(newLocation);
+          }
+          
           if (update.driver) {
             setDriver(update.driver);
           }
@@ -84,8 +125,44 @@ function TrackDelivery() {
       if (clientRef.current) {
         clientRef.current.deactivate();
       }
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
     };
   }, [deliveryId]);
+
+  // Smooth animation for driver movement
+  const animateDriverMovement = (newLocation) => {
+    if (!previousLocationRef.current || !newLocation) return;
+    
+    const startLocation = previousLocationRef.current;
+    const endLocation = newLocation;
+    const duration = 10000; // 10 seconds to match update interval
+    let startTime = null;
+
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Linear interpolation between points
+      const currentLat = startLocation.lat + (endLocation.lat - startLocation.lat) * progress;
+      const currentLng = startLocation.lng + (endLocation.lng - startLocation.lng) * progress;
+
+      setDisplayLocation({
+        lat: currentLat,
+        lng: currentLng
+      });
+
+      if (progress < 1) {
+        animationRef.current = requestAnimationFrame(animate);
+      } else {
+        previousLocationRef.current = endLocation;
+      }
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+  };
 
   const calculateRoute = async (deliveryData) => {
     if (!googleMapsRef.current || !deliveryData || !deliveryData.driverLocation) return;
@@ -148,42 +225,40 @@ function TrackDelivery() {
     }
   };
 
-  // Handle error status
-  const getStatusMessage = () => {
-    if (status === 'ERROR') {
-      return 'An error occurred while processing the delivery';
-    }
-    return status;
-  };
-
   if (!delivery) {
     return <div>Loading...</div>;
   }
 
   const markers = [
     {
-      position: { lat: delivery.deliveryLocation.latitude, lng: delivery.deliveryLocation.longitude },
+      position: { 
+        lat: delivery.deliveryLocation.latitude, 
+        lng: delivery.deliveryLocation.longitude 
+      },
       title: 'Delivery Location',
-      icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+      icon: DELIVERY_ICON
     },
     {
-      position: { lat: delivery.restaurantLocation.latitude, lng: delivery.restaurantLocation.longitude },
+      position: { 
+        lat: delivery.restaurantLocation.latitude, 
+        lng: delivery.restaurantLocation.longitude 
+      },
       title: 'Restaurant Location',
-      icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
-    },
+      icon: RESTAURANT_ICON
+    }
   ];
 
-  if (driverLocation) {
+  if (displayLocation) {
     markers.push({
-      position: { lat: driverLocation.latitude, lng: driverLocation.longitude },
+      position: displayLocation,
       title: 'Driver Location',
-      icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+      icon: DRIVER_ICON
     });
   }
 
   return (
     <div className="container mx-auto p-4">
-      <StatusUpdate status={getStatusMessage()} />
+      <StatusUpdate status={status} />
       <h1 className="text-2xl font-bold mb-4">Track Delivery: {delivery.orderId}</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
@@ -240,10 +315,14 @@ function TrackDelivery() {
           </ul>
         </div>
         <Map
-          center={{ lat: delivery.deliveryLocation.latitude, lng: delivery.deliveryLocation.longitude }}
+          center={{ 
+            lat: delivery.deliveryLocation.latitude, 
+            lng: delivery.deliveryLocation.longitude 
+          }}
           zoom={12}
           markers={markers}
           polylinePath={routePath}
+          driverLocation={displayLocation}
         />
       </div>
     </div>
