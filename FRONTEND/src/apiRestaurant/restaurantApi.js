@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:8081'; 
+const API_BASE_URL = 'http://localhost:8088';
 
 export const getAllRestaurants = async () => {
     const response = await fetch(`${API_BASE_URL}/api/public/restaurants`);

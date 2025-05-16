@@ -1,8 +1,9 @@
 import React from 'react';
 import Navbar from './Navbar';
 import { Outlet } from 'react-router-dom';
+import RestaurantOwnerNavBar from "./RestaurantOwnerNavBar";
 
-const Layout = () => {
+const RestaurantOwnerLayout = () => {
     return (
         <div className="min-h-screen bg-gray-100">
             <Navbar />
@@ -13,4 +14,4 @@ const Layout = () => {
     );
 };
 
-export default Layout;
+export default RestaurantOwnerLayout;

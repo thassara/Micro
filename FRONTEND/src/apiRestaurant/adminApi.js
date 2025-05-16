@@ -1,7 +1,7 @@
-const API_BASE_URL = 'http://localhost:8081'; // Update with your backend URL
+const API_BASE_URL = 'http://localhost:8088'; // Update with your backend URL
 
 export const getPendingRestaurants = async () => {
-    const response = await fetch(`${API_BASE_URL}/api/admin/restaurants/pending"`, {
+    const response = await fetch(`${API_BASE_URL}/api/admin/restaurants/pending`, {
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
