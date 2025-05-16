@@ -1,14 +1,11 @@
-# Use a base image with JDK 21
-FROM eclipse-temurin:21-jdk
+# Use OpenJDK base image
+FROM eclipse-temurin:21-jdk-alpine
 
-# Set the working directory
+# Set app directory
 WORKDIR /app
 
-# Copy the jar file into the container
-COPY target/*.jar app.jar
-
-# Expose the port your service runs on (e.g., 8082 for Delivery)
-EXPOSE 8082
+# Copy built jar into image
+COPY target/deliveryService-0.0.1-SNAPSHOT.jar app.jar
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]

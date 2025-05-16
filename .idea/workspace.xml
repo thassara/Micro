@@ -5,18 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4f1e867-f033-4bbb-b787-c8e088b326be" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/deliveryService/delivery-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deliveryService/delivery-service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/auth-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway/api-gateway-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restaurant-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/restaurant-service/restaurant-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deliveryService/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/deliveryService/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant-service/src/main/java/com/hiran/restaurantService/controller/AdminRestaurantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant-service/src/main/java/com/hiran/restaurantService/controller/AdminRestaurantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant-service/src/test/java/com/hiran/restaurantService/RestaurantServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant-service/src/test/java/com/hiran/restaurantService/RestaurantServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/DemoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/DemoApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/config/CorsGlobalConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/config/CorsGlobalConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/dto/AuthRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/dto/AuthRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/service/AuthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/service/AuthService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/service/JwtService.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/classes/com/Auth/demo/service/JwtService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/target/test-classes/com/Auth/demo/DemoApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/demo/target/test-classes/com/Auth/demo/DemoApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/classes/com/api_gateway/demo/DemoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/com/api_gateway/demo/DemoApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/classes/com/api_gateway/demo/config/CorsConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/com/api_gateway/demo/config/CorsConfig$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/classes/com/api_gateway/demo/config/CorsConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/com/api_gateway/demo/config/CorsConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/classes/com/api_gateway/demo/filter/JwtAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/com/api_gateway/demo/filter/JwtAuthenticationFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/classes/com/api_gateway/demo/service/JwtService.class" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/classes/com/api_gateway/demo/service/JwtService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,15 +46,15 @@
   }
 }</component>
   <component name="KubernetesApiPersistence">{}</component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "configuredContexts": [
+  <component name="KubernetesApiProvider">{
+  &quot;configuredContexts&quot;: [
     {
-      "name": "docker-desktop",
-      "kubeConfigUrl": "file://C:/Users/HP/.kube/config"
+      &quot;name&quot;: &quot;docker-desktop&quot;,
+      &quot;kubeConfigUrl&quot;: &quot;file://C:/Users/HP/.kube/config&quot;
     }
   ],
-  "isMigrated": true
-}]]></component>
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="Security Analysis" />
   </component>
@@ -59,31 +66,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.DeliveryServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.DemoApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.RestaurantServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#4 on main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/3year/New folder (2)/Micro&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.DeliveryServiceApplication.executor": "Run",
+    "Spring Boot.DemoApplication (1).executor": "Run",
+    "Spring Boot.DemoApplication.executor": "Run",
+    "Spring Boot.RestaurantServiceApplication.executor": "Run",
+    "git-widget-placeholder": "#4 on main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/3year/New folder (2)/Micro",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -103,7 +110,6 @@
       </method>
     </configuration>
     <configuration name="DemoApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="demo (1) (com.api-gateway)" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.api_gateway.demo.DemoApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -143,7 +149,10 @@
       <updated>1746976944669</updated>
       <workItem from="1746976945659" duration="6063000" />
       <workItem from="1747149826494" duration="5002000" />
-      <workItem from="1747401724402" duration="1058000" />
+      <workItem from="1747401724402" duration="1451000" />
+      <workItem from="1747403496058" duration="26000" />
+      <workItem from="1747403731392" duration="446000" />
+      <workItem from="1747405458244" duration="10000" />
     </task>
     <servers />
   </component>
