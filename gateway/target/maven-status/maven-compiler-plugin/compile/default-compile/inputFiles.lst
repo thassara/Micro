@@ -1,0 +1,11 @@
+D:\3year\New folder (2)\Micro\gateway\src\main\java\com\api_gateway\demo\service\JwtService.java
+D:\3year\New folder (2)\Micro\gateway\src\main\java\com\api_gateway\demo\config\CorsConfig.java
+D:\3year\New folder (2)\Micro\gateway\src\main\java\com\api_gateway\demo\filter\AuthenticationFilter.java
+D:\3year\New folder (2)\Micro\gateway\src\main\java\com\api_gateway\demo\filter\RoleFilter.java
+D:\3year\New folder (2)\Micro\gateway\src\main\java\com\api_gateway\demo\config\SwaggerConfig.java
+D:\3year\New folder (2)\Micro\gateway\src\main\java\com\api_gateway\demo\config\SecurityConfig.java
+D:\3year\New folder (2)\Micro\gateway\src\main\java\com\api_gateway\demo\DemoApplication.java
+D:\3year\New folder (2)\Micro\gateway\src\main\java\com\api_gateway\demo\config\GatewayConfig.java
+D:\3year\New folder (2)\Micro\gateway\src\main\java\com\api_gateway\demo\filter\JwtAuthenticationFilter.java
+D:\3year\New folder (2)\Micro\gateway\src\main\java\com\api_gateway\demo\controller\FallbackController.java
+D:\3year\New folder (2)\Micro\gateway\src\main\java\com\api_gateway\demo\config\RoleBasedAccessFilter.java

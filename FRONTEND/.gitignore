@@ -1,0 +1,57 @@
+# dependencies
+/node_modules/
+.pnp/
+.pnp.js
+
+# production
+/build/
+dist/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# dotenv environment files
+.env
+.env.*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# testing
+/coverage/
+jest-test-results.json
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# VS Code
+.vscode/
+
+# IntelliJ
+.idea/
+
+# Mac folder attributes
+.AppleDouble
+
+# Parcel cache
+.cache/
+
+# Optional npm cache
+.npm/
+
+# Storybook files
+.out/
+storybook-static/
+
+# Optional lock files
+# Uncomment only if you want to ignore specific lock files
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
