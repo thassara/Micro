@@ -32,7 +32,7 @@ function StatusUpdate({ status, onClose }) {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed top-4 right-4 bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded shadow-lg flex items-center justify-between max-w-sm">
+    <div className="fixed top-4 right-4 bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded shadow-lg flex items-center justify-between max-w-sm mt-16">
       <span>{message}</span>
       <button
         onClick={handleClose}
