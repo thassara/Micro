@@ -187,45 +187,64 @@ useEffect(() => {
     );
   }
 
-  return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Create Delivery</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium">Customer ID</label>
-          <input
-            type="text"
-            value={customerId}
-            onChange={(e) => setCustomerId(e.target.value)}
-            className="mt-1 block w-full border rounded-md p-2"
-            required
-          />
+return (
+    <div className="container mx-auto p-4 max-w-4xl">
+      <h1 className="text-2xl font-bold mb-6 text-center md:text-left">Create New Delivery</h1>
+      <form onSubmit={handleSubmit} className="space-y-6 bg-white rounded-lg shadow-md p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Customer ID</label>
+            <input
+              type="text"
+              value={customerId}
+              onChange={(e) => setCustomerId(e.target.value)}
+              className="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              required
+              placeholder="Enter customer ID"
+            />
+          </div>
+          
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Delivery Address</label>
+            <input
+              id="delivery-address"
+              type="text"
+              className="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Search for delivery address"
+            />
+          </div>
+
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Restaurant Address</label>
+            <input
+              id="restaurant-address"
+              type="text"
+              className="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Search for restaurant"
+            />
+          </div>
         </div>
-        <div>
-          <label className="block text-sm font-medium">Delivery Address</label>
-          <input
-            id="delivery-address"
-            type="text"
-            className="mt-1 block w-full border rounded-md p-2"
-            placeholder="Search for delivery address"
-          />
+
+        <div className="mt-4">
+          <label className="block text-sm font-medium text-gray-700 mb-2">Delivery Route Preview</label>
+          <div ref={mapRef} className="h-80 w-full rounded-lg border border-gray-300 shadow-sm"></div>
         </div>
-        <div>
-          <label className="block text-sm font-medium">Restaurant Address</label>
-          <input
-            id="restaurant-address"
-            type="text"
-            className="mt-1 block w-full border rounded-md p-2"
-            placeholder="Search for restaurant"
-          />
+
+        <div className="flex flex-col sm:flex-row justify-end gap-3 pt-4">
+          <button
+            type="button"
+            onClick={handleCancel}
+            className="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Create Delivery
+          </button>
         </div>
-        <div ref={mapRef} className="h-96 w-full"></div>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Create Delivery
-        </button>
       </form>
     </div>
   );
